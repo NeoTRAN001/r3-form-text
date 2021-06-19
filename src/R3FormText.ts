@@ -9,6 +9,9 @@ export class R3FormText extends LitElement {
 
   @property({ type: String }) 
   label = 'Default Text';
+
+  @property({ type: String })
+  mode = 'light';
   
   @property({ type: String }) 
   placeholder = 'Placeholder';
@@ -41,7 +44,7 @@ export class R3FormText extends LitElement {
 
   render() {
     return html`
-      <div class="container">
+      <div class="container ${this.mode}">
         ${this._getLabel} 
         ${this._getInput}
         ${this._getDescription}  
