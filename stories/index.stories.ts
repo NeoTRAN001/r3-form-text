@@ -5,13 +5,13 @@ export default {
   title: 'R3FormText',
   component: 'r3-form-text',
   argTypes: {
-    description: { description: 'Texto inferior del input' },
-    descriptionType: {control: 'descriptionType'},
-    label: { control: 'label' },
-    mode: {control: 'mode'},
-    placeholder: { control: 'placeholder' },
-    withDescription: { control: 'withDescription' },
-    withLabel: { control: 'withLabel' },
+    description: {control: 'description', description: 'Texto inferior del input' },
+    descriptionType: {control: 'descriptionType', description: 'Cambiar el color de la descripción' },
+    label: { control: 'label', description: 'Texto superior del input' },
+    mode: {control: 'mode', description: 'Cambiar entre tema dark y light'},
+    placeholder: { control: 'placeholder', description: 'Texto dentro del input' },
+    withDescription: { control: 'withDescription', description: 'Mostrar u ocultar la descripción' },
+    withLabel: { control: 'withLabel', description: 'Mostrar u ocultar el texto superior' },
   },
 };
 
