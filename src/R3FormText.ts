@@ -29,9 +29,11 @@ export class R3FormText extends LitElement {
 
   get _getDescription() {
     return this.withDescription
-      ? html` <p id="description" class="${this.descriptionType}">
-          ${this.description}
-        </p>`
+      ? html` 
+        <p 
+          id="description" 
+          class="${this.descriptionType}"
+        >${this.description}</p>`
       : '';
   }
 
