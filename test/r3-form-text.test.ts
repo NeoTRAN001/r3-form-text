@@ -31,6 +31,9 @@ describe('R3FormText', () => {
 
       expect(el.mode).to.equal('light');
       assert.typeOf(el.mode, 'String');
+
+      expect(el.descriptionType).to.equal('info');
+      assert.typeOf(el.descriptionType, 'String');
     });
   });
 
@@ -62,8 +65,15 @@ describe('R3FormText', () => {
       it('When dark mode is active', async () => {
         el.mode = 'dark';
         await el.updateComplete;
-        const input = el.shadowRoot?.querySelector('.container');
-        expect(input?.getAttribute("class")).to.equal('container dark');
+        const container = el.shadowRoot?.querySelector('.container');
+        expect(container?.getAttribute("class")).to.equal('container dark');
+      });
+
+      it('When description is warning', async () => {
+        el.descriptionType = 'warning';
+        await el.updateComplete;
+        const description = el.shadowRoot?.querySelector('#description');
+        expect(description?.getAttribute("class")).to.equal('warning');
       });
     });
   });

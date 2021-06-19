@@ -7,6 +7,9 @@ export class R3FormText extends LitElement {
   @property({ type: String })
   description = 'Default description';
 
+  @property({ type: String, attribute: 'description-type' })
+  descriptionType = 'info';
+
   @property({ type: String }) 
   label = 'Default Text';
 
@@ -25,7 +28,7 @@ export class R3FormText extends LitElement {
   get _getDescription () {
     return this.withDescription 
       ? html`
-        <p id="description">${this.description}</p>` 
+        <p id="description" class="${this.descriptionType}">${this.description}</p>` 
       : '';  
   }
 

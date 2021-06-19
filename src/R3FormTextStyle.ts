@@ -1,11 +1,5 @@
 import { css } from 'lit-element';
 
-const dark = css`
-    #label {
-        color: var(--main-color-white);
-    }
-`;
-
 export default css`
     :host {
         font-family: 'Roboto', sans-serif;
@@ -13,7 +7,7 @@ export default css`
         --main-color-white: #fff;
         --main-color-red: #C70039;
         --main-color-yellow: #C70039;
-        --main-color-blue: #C70039;
+        --main-color-blue: #12dee1;
         --main-color-dark: black;
     }
 
@@ -86,9 +80,5 @@ export default css`
 
     #description.info {
         color: var(--main-color-blue);
-    }
-
-    @media (prefers-color-scheme: dark) {
-        ${dark}
     }
 `;
