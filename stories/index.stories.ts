@@ -16,7 +16,10 @@ export default {
       description: 'Cambiar el color de la descripción',
     },
     label: { control: 'label', description: 'Texto superior del input' },
-    mode: { control: 'mode', description: 'Cambiar entre tema dark y light' },
+    ambient: {
+      control: 'ambient',
+      description: 'Cambiar entre tema dark y light',
+    },
     placeholder: {
       control: 'placeholder',
       description: 'Texto dentro del input',
@@ -42,7 +45,7 @@ interface ArgTypes {
   description?: string;
   descriptionType?: string;
   label?: string;
-  mode?: string;
+  ambient?: string;
   placeholder?: string;
   withDescription?: boolean;
   withLabel?: boolean;
@@ -52,7 +55,7 @@ const Template: Story<ArgTypes> = ({
   description = 'Default description',
   descriptionType = 'info',
   label = 'Default Text',
-  mode = 'light',
+  ambient = 'light',
   placeholder = 'Placeholder',
   withDescription = false,
   withLabel = false,
@@ -67,7 +70,7 @@ const Template: Story<ArgTypes> = ({
     description="${description}"
     description-type="${descriptionType}"
     label="${label}"
-    mode="${mode}"
+    ambient="${ambient}"
     placeholder="${placeholder}"
     ?with-description="${withDescription}"
     ?with-label="${withLabel}"
@@ -99,11 +102,11 @@ WithLabelAndDescription.args = {
   withLabel: true,
 };
 
-export const darkMode = Template.bind({});
-darkMode.args = {
+export const darkAmbient = Template.bind({});
+darkAmbient.args = {
   withDescription: true,
   withLabel: true,
-  mode: 'dark',
+  ambient: 'dark',
 };
 
 export const CustomText = Template.bind({});
