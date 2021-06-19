@@ -7,8 +7,14 @@ export class R3FormText extends LitElement {
   @property({ type: String })
   description = 'Default description';
 
+  @property({ type: String, attribute: 'description-type' })
+  descriptionType = 'info';
+
   @property({ type: String }) 
   label = 'Default Text';
+
+  @property({ type: String })
+  mode = 'light';
   
   @property({ type: String }) 
   placeholder = 'Placeholder';
@@ -22,7 +28,7 @@ export class R3FormText extends LitElement {
   get _getDescription () {
     return this.withDescription 
       ? html`
-        <p id="description">${this.description}</p>` 
+        <p id="description" class="${this.descriptionType}">${this.description}</p>` 
       : '';  
   }
 
@@ -41,7 +47,7 @@ export class R3FormText extends LitElement {
 
   render() {
     return html`
-      <div class="container">
+      <div class="container ${this.mode}">
         ${this._getLabel} 
         ${this._getInput}
         ${this._getDescription}  

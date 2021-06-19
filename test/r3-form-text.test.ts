@@ -28,6 +28,12 @@ describe('R3FormText', () => {
 
       expect(el.withDescription).to.be.false;
       assert.typeOf(el.withDescription, 'Boolean');
+
+      expect(el.mode).to.equal('light');
+      assert.typeOf(el.mode, 'String');
+
+      expect(el.descriptionType).to.equal('info');
+      assert.typeOf(el.descriptionType, 'String');
     });
   });
 
@@ -54,6 +60,20 @@ describe('R3FormText', () => {
         await el.updateComplete;
         const input = el.shadowRoot?.querySelector('#input');
         expect(input?.getAttribute("placeholder")).to.equal('Custom Label');
+      });
+
+      it('When dark mode is active', async () => {
+        el.mode = 'dark';
+        await el.updateComplete;
+        const container = el.shadowRoot?.querySelector('.container');
+        expect(container?.getAttribute("class")).to.equal('container dark');
+      });
+
+      it('When description is warning', async () => {
+        el.descriptionType = 'warning';
+        await el.updateComplete;
+        const description = el.shadowRoot?.querySelector('#description');
+        expect(description?.getAttribute("class")).to.equal('warning');
       });
     });
   });

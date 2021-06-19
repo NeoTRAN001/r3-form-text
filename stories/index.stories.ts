@@ -6,7 +6,9 @@ export default {
   component: 'r3-form-text',
   argTypes: {
     description: { description: 'Texto inferior del input' },
+    descriptionType: {control: 'descriptionType'},
     label: { control: 'label' },
+    mode: {control: 'mode'},
     placeholder: { control: 'placeholder' },
     withDescription: { control: 'withDescription' },
     withLabel: { control: 'withLabel' },
@@ -21,7 +23,9 @@ interface Story<T> {
 
 interface ArgTypes {
   description?: string;
+  descriptionType?: string;
   label?: string;
+  mode?: string;
   placeholder?: string;
   withDescription?: boolean;
   withLabel?: boolean;
@@ -29,7 +33,9 @@ interface ArgTypes {
 
 const Template: Story<ArgTypes> = ({
   description = 'Default description',
+  descriptionType = 'info',
   label = 'Default Text',
+  mode = 'light',
   placeholder = 'Placeholder',
   withDescription = false,
   withLabel = false,
@@ -39,7 +45,9 @@ const Template: Story<ArgTypes> = ({
   
   <r3-form-text
     description="${description}"
+    description-type="${descriptionType}"
     label="${label}"
+    mode="${mode}"
     placeholder="${placeholder}"
     ?with-description="${withDescription}"
     ?with-label="${withLabel}"
@@ -60,8 +68,30 @@ WithDescription.args = {
   withDescription: true,
 }
 
+export const WarningDescription = Template.bind({});
+WarningDescription.args = {
+  withDescription: true,
+  descriptionType: 'warning'
+}
+
 export const WithLabelAndDescription = Template.bind({});
 WithLabelAndDescription.args = {
   withDescription: true,
   withLabel: true,
+}
+
+export const darkMode = Template.bind({});
+darkMode.args = {
+  withDescription: true,
+  withLabel: true,
+  mode: 'dark'
+}
+
+export const CustomText = Template.bind({});
+CustomText.args = {
+  withDescription: true,
+  withLabel: true,
+  description: 'Custom description',
+  label: 'Name',
+  placeholder: 'Write yout Name'
 }
