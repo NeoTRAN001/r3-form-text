@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #fafafa;
+    }
+
+    #demo {
+      width: 300px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        body {
+          background-color: black;
+        }
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=VT323&display=swap" rel="stylesheet"> 
+</head>
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../dist/r3-form-text.js';
+
+    render(
+      html`
+        <r3-form-text 
+          with-label
+          label="Name"
+          placeholder="Your name"
+        ></r3-form-text>
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>
