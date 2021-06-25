@@ -2,18 +2,10 @@ import { html, fixture, expect, assert } from '@open-wc/testing';
 import { R3FormText } from '../src/R3FormText.js';
 import '../r3-form-text.js';
 
-let el: R3FormText;
-
-const loadComponent = async () => {
-  el = await fixture<R3FormText>(html`<r3-form-text></r3-form-text>`);
-  el.updateComplete;
-};
-
 describe('R3FormText', () => {
   describe('Default values', () => {
-    loadComponent();
-
     it('Props value', async () => {
+      const el = await fixture<R3FormText>(html`<r3-form-text></r3-form-text>`);
       expect(el.label).to.equal('Default Text');
       assert.typeOf(el.label, 'String');
 
@@ -38,40 +30,45 @@ describe('R3FormText', () => {
   });
 
   describe('Change value into props', () => {
-    loadComponent();
-
     describe('View elements in dom', () => {
       it('When withLabel is true', async () => {
-        el.withLabel = true;
-        await el.updateComplete;
+        const el = await fixture<R3FormText>(
+          html`<r3-form-text with-label="true"></r3-form-text>`
+        );
         const label = el.shadowRoot?.querySelector('#label')?.textContent;
         expect(label).to.equal(el.label);
       });
 
       it('When withDescription is true', async () => {
-        el.withDescription = true;
-        await el.updateComplete;
+        const el = await fixture<R3FormText>(
+          html`<r3-form-text with-description="true"></r3-form-text>`
+        );
         const description =
           el.shadowRoot?.querySelector('#description')?.textContent;
         expect(description).to.equal(el.description);
       });
 
       it('When define custom placeholder', async () => {
-        el.placeholder = 'Custom Label';
-        await el.updateComplete;
+        const el = await fixture<R3FormText>(
+          html`<r3-form-text placeholder="Custom Label"></r3-form-text>`
+        );
         const input = el.shadowRoot?.querySelector('#input');
         expect(input?.getAttribute('placeholder')).to.equal('Custom Label');
       });
 
       it('When dark mode is active', async () => {
-        el.ambient = 'dark';
-        await el.updateComplete;
+        const el = await fixture<R3FormText>(
+          html`<r3-form-text ambient="dark"></r3-form-text>`
+        );
         const container = el.shadowRoot?.querySelector('.container');
         expect(container?.getAttribute('class')).to.equal('container dark');
       });
 
       it('When description is warning', async () => {
-        el.descriptionType = 'warning';
+        const el = await fixture<R3FormText>(html` <r3-form-text
+          description-type="warning"
+          with-description
+        ></r3-form-text>`);
         await el.updateComplete;
         const description = el.shadowRoot?.querySelector('#description');
         expect(description?.getAttribute('class')).to.equal('warning');
