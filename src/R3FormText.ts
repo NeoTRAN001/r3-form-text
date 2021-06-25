@@ -1,6 +1,7 @@
 /*eslint spaced-comment: "off" */
 /*eslint import/extensions: "off" */
-import { html, LitElement, property } from 'lit-element';
+import { html, LitElement } from 'lit';
+import { property } from 'lit/decorators.js';
 import styles from './R3FormTextStyle';
 
 export class R3FormText extends LitElement {
@@ -29,11 +30,9 @@ export class R3FormText extends LitElement {
 
   get _getDescription() {
     return this.withDescription
-      ? html` 
-        <p 
-          id="description" 
-          class="${this.descriptionType}"
-        >${this.description}</p>`
+      ? html` <p id="description" class="${this.descriptionType}">
+          ${this.description}
+        </p>`
       : '';
   }
 
