@@ -17,10 +17,6 @@
     "storybook": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\"",
     "storybook:build": "tsc && build-storybook"
   },
-  "dependencies": {
-    "lit-element": "^2.5.1",
-    "lit-html": "^1.4.1"
-  },
   "devDependencies": {
     "@open-wc/eslint-config": "^4.3.0",
     "@open-wc/testing": "^2.5.33",
@@ -76,5 +72,8 @@
       "eslint --fix",
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "lit": "^2.0.0-rc.2"
   }
 }
